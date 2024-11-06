@@ -7,6 +7,47 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <!-- Left Content for Actual Values -->
+            <ColumnDefinition Width="*"/>
+            <!-- Right Content for TabPages -->
+            <ColumnDefinition Width="0,3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <!-- Top Header-->
+            <RowDefinition Height="32*"/>
+            <!-- Bottom Header-->
+            <RowDefinition Height="32*"/>
+            <!-- Main Content Panel-->
+            <RowDefinition Height="233*"/>
+            <!-- Warnings Footer-->
+            <RowDefinition Height="61*"/>
+            <!-- Alarm Footer-->
+            <RowDefinition Height="76*"/>
+        </Grid.RowDefinitions>
+        <Image Grid.Column="0"  Source="/Resources/Logo's/logotyp-Controltec.jpg" Stretch="Fill" Opacity="0.975" Grid.RowSpan="2"/>
+        <TabControl Grid.Column="1" Grid.Row="1" Margin="0,32,0,0" Grid.RowSpan="2">
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+        <ListBox Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" d:ItemsSource="{d:SampleData ItemCount=5}" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" Margin="0,4,0,0"/>
+        <ListBox Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" d:ItemsSource="{d:SampleData ItemCount=5}" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center"/>
+
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+        </Grid>
 
     </Grid>
 </Window>
