@@ -1,14 +1,10 @@
-﻿using ScottPlot.WPF;
-using System.Text;
+﻿using LiveCharts;
+using LiveCharts.Wpf;
+using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using System.Collections.Generic;
+using LiveCharts.Wpf.Charts.Base;
+using System.Windows.Threading;
 
 namespace HMIApp_WPF
 {
@@ -17,18 +13,34 @@ namespace HMIApp_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public ChartValues<LiveCharts.Defaults.ObservablePoint> MyValues { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
 
-            double[] xs = { 1, 2, 3, 4, 5 };
-            double[] ys = { 1, 4, 9, 16, 25 };
+            // Wartości X i Y
+            var xValues = new List<double> { 1, 2, 3, 4, 5 };
+            var yValues = new List<double> { 3, 5, 7, 4, 6 };
 
-            var scatter = wpfPlot.Plot.Add.Scatter(xs, ys);
-            //scatter.Color = System.Drawing.Color.Blue; // Ustaw kolor linii na niebieski
-            //wpfPlot.Plot.Grid(enable: true, color: System.Drawing.Color.LightGray, lineStyle: ScottPlot.LineStyle.Dash);
+            // Łączenie X i Y w punkty (pary X, Y)
+            var points = xValues.Zip(yValues, (x, y) => new { X = x, Y = y });
 
-            wpfPlot.Refresh();
+            // Przekształcanie punktów do formatu, który rozumie LiveCharts 0.9.7
+            var chartValues = new ChartValues<LiveCharts.Defaults.ObservablePoint>();
+            foreach (var point in points)
+            {
+                chartValues.Add(new LiveCharts.Defaults.ObservablePoint(point.X, point.Y));
+            }
+
+            // Tworzenie serii z danymi
+            MyValues = chartValues;
+
+            // Ustawienie DataContext
+            DataContext = this;
+
         }
     }
+    
 }

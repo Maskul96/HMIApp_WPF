@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HMIApp_WPF"
         xmlns:ScottPlot="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
+        xmlns:LiveChart="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
@@ -31,7 +32,19 @@
         <TabControl Grid.Column="1" Grid.Row="1" Margin="0,32,0,0" Grid.RowSpan="2">
             <TabItem Header="Auto">
                 <Grid Background="#FFE5E5E5" >
-                    <ScottPlot:WpfPlot x:Name="wpfPlot" />
+
+                    <LiveChart:CartesianChart x:Name="mychart">
+                        <LiveChart:CartesianChart.Series>
+                            <LiveChart:LineSeries Title="Sample Data" Values="{Binding MyValues}" Stroke="Red" Fill="Transparent" />
+                        </LiveChart:CartesianChart.Series>
+                        <LiveChart:CartesianChart.AxisX>
+                            <LiveChart:Axis Title="Przemieszczenie [mm]"/>
+                        </LiveChart:CartesianChart.AxisX>
+                        <LiveChart:CartesianChart.AxisY>
+                            <LiveChart:Axis Title="Siła [N]"/>
+                        </LiveChart:CartesianChart.AxisY>
+                    </LiveChart:CartesianChart>
+                   <!-- <ScottPlot:WpfPlot x:Name="wpfPlot" /> -->
                 </Grid>
             </TabItem>
             <TabItem Header="Manual">
@@ -52,4 +65,5 @@
         </Grid>
 
     </Grid>
+
 </Window>
