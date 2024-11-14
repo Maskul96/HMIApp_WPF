@@ -7,8 +7,8 @@
         xmlns:ScottPlot="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
         xmlns:LiveChart="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="720" Width="1280">
+    <Grid x:Name="mainGrid">
         <Grid.ColumnDefinitions>
             <!-- Left Content for Actual Values -->
             <ColumnDefinition Width="*"/>
@@ -18,21 +18,24 @@
 
         <Grid.RowDefinitions>
             <!-- Top Header-->
-            <RowDefinition Height="32*"/>
+            <RowDefinition Height="20*"/>
             <!-- Bottom Header-->
-            <RowDefinition Height="32*"/>
+            <RowDefinition Height="20*"/>
+            <!-- Reference Header-->
+            <RowDefinition Height="20*"/>
             <!-- Main Content Panel-->
-            <RowDefinition Height="233*"/>
+            <RowDefinition Height="230*"/>
             <!-- Warnings Footer-->
-            <RowDefinition Height="61*"/>
+            <RowDefinition Height="20*"/>
             <!-- Alarm Footer-->
-            <RowDefinition Height="76*"/>
+            <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
+
         <Image Grid.Column="0"  Source="Resources/Logo's/logotyp-Controltec.jpg" Stretch="Fill" Opacity="0.975" Grid.RowSpan="2"/>
-        <TabControl Grid.Column="1" Grid.Row="1" Margin="0,32,0,0" Grid.RowSpan="2">
+
+        <TabControl Grid.Column="1" Grid.Row="3" Margin="0,0,0,44" Grid.RowSpan="2">
             <TabItem Header="Auto">
                 <Grid Background="#FFE5E5E5" >
-
                     <LiveChart:CartesianChart x:Name="mychart">
                         <LiveChart:CartesianChart.Series>
                             <LiveChart:LineSeries Title="Sample Data" Values="{Binding MyValues}" Stroke="Red" Fill="Transparent" />
@@ -44,26 +47,79 @@
                             <LiveChart:Axis Title="Siła [N]"/>
                         </LiveChart:CartesianChart.AxisY>
                     </LiveChart:CartesianChart>
-                   <!-- <ScottPlot:WpfPlot x:Name="wpfPlot" /> -->
                 </Grid>
             </TabItem>
             <TabItem Header="Manual">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                </Grid>
+            </TabItem>
+            <TabItem Header="Dane">
+                <Grid Background="#FFE5E5E5">
+                </Grid>
+            </TabItem>
+            <TabItem Header="IO's">
+                <Grid Background="#FFE5E5E5">
+                </Grid>
+            </TabItem>
+            <TabItem Header="Alarms">
+                <Grid Background="#FFE5E5E5">
+                </Grid>
+            </TabItem>
+            <TabItem Header="Users">
+                <Grid Background="#FFE5E5E5">
+                </Grid>
+            </TabItem>
+            <TabItem Header="Archivization">
+                <Grid Background="#FFE5E5E5">
+                </Grid>
+            </TabItem>
+            <TabItem Header="Service">
+                <Grid Background="#FFE5E5E5">
+                </Grid>
             </TabItem>
         </TabControl>
-        <ListBox Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" d:ItemsSource="{d:SampleData ItemCount=5}" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" Margin="0,4,0,0"/>
-        <ListBox Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" d:ItemsSource="{d:SampleData ItemCount=5}" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center"/>
-        <Grid Grid.Row="2" Grid.Column="0">
+
+        <ListBox x:Name="ListBox_Alarms" Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" d:ItemsSource="{d:SampleData ItemCount=5}" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" Margin="0,4,0,0" FontSize="22"/>
+        <ListBox x:Name="ListBox_Warnings" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" d:ItemsSource="{d:SampleData ItemCount=5}" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" FontSize="22"/>
+
+        <!--Nested Grid For Top Header for User-->
+        <Grid Grid.Row="0" Grid.Column="1" x:Name="NestedGridForTopHeader_Users">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+            <Label x:Name="Label_User" Content="User:"/>
+
+        </Grid>
+        <!--Nested Grid For Header with Reference and client number-->
+        <Grid Grid.Row="2" Grid.ColumnSpan="2" x:Name="NestedGridForReference">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="Label_ClientName" Grid.Column="0" Content="Name Of Client:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="TextBox_ClientName" Grid.Column="1" Text="Actual Name of Client" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+            <Label x:Name="Label_ReferenceNumber" Grid.Column="2" Content="Number of Reference:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+            <TextBox x:Name="TextBox_ReferenceNumber" Grid.Column="3"  Text="Actual Number of Reference" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>
 
+    <!--Nested Grid ForActual Value on the Left Side of App-->
+    <Grid Grid.Row="3" Grid.Column="0" x:Name="NestesGridForActualValues">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
     </Grid>
-
+    </Grid>
 </Window>
