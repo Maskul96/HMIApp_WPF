@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:HMIApp_WPF"
+        xmlns:local="clr-namespace:HMIApp_WPF.Resources"
         xmlns:ScottPlot="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
         xmlns:LiveChart="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
@@ -119,7 +119,7 @@
             <TextBox x:Name="TextBox_HomePos" Grid.Column="4" Text="HOME POS" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <TextBox x:Name="TextBox_HMIStatus" Grid.Column="5" Text="HMI STATUS" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         </Grid>
-        
+
         <!--Nested Grid For Header with Reference and client number-->
         <Grid Grid.Row="2" Grid.ColumnSpan="2" x:Name="NestedGridForReference">
             <Grid.ColumnDefinitions>
@@ -144,6 +144,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            <Button Content="" HorizontalAlignment="Left" Margin="32,57,0,0" VerticalAlignment="Top" Height="66" Width="93"/>
         </Grid>
     </Grid>
 </Window>
