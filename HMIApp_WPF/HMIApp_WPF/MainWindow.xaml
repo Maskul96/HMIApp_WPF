@@ -85,17 +85,41 @@
         <!--Nested Grid For Top Header for User-->
         <Grid Grid.Row="0" Grid.Column="1" x:Name="NestedGridForTopHeader_Users">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.7*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="0.8*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="Label_User" Content="User:" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="Label_NameOfUser" Grid.Column="1" Content="UserName" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            <Label x:Name="Label_UserCardNumber" Grid.Column="2" Content="UserCard Number" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            <Label x:Name="Label_Permission" Grid.Column="3" Content="Permission" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label x:Name="Label_TimeToLogout" Grid.Column="4" Content="Time to Logout" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox x:Name="TextBox_TimeToLogout" Grid.Column="5" Text="Time" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label x:Name="Label_DateTime" Grid.Column="6" Content="Date And Time" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        </Grid>
+
+        <!--Nested Grid For Machine Status Below Top Header-->
+        <Grid Grid.Row="1" Grid.Column="1" x:Name="NestedGridForMachineStatus">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="Label_User" Content="User:"/>
-
+            <TextBox x:Name="TextBox_Auto" Text="AUTO" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="TextBox_Man" Grid.Column="1" Text="MANUAL" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="TextBox_Safety" Grid.Column="2" Text="SAFETY" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="TextBox_Curtain" Grid.Column="3" Text="CURTAIN" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="TextBox_HomePos" Grid.Column="4" Text="HOME POS" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="TextBox_HMIStatus" Grid.Column="5" Text="HMI STATUS" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         </Grid>
+        
         <!--Nested Grid For Header with Reference and client number-->
         <Grid Grid.Row="2" Grid.ColumnSpan="2" x:Name="NestedGridForReference">
             <Grid.ColumnDefinitions>
@@ -110,16 +134,16 @@
             <TextBox x:Name="TextBox_ReferenceNumber" Grid.Column="3"  Text="Actual Number of Reference" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         </Grid>
 
-    <!--Nested Grid ForActual Value on the Left Side of App-->
-    <Grid Grid.Row="3" Grid.Column="0" x:Name="NestesGridForActualValues">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-    </Grid>
+        <!--Nested Grid ForActual Value on the Left Side of App-->
+        <Grid Grid.Row="3" Grid.Column="0" x:Name="NestesGridForActualValues">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+        </Grid>
     </Grid>
 </Window>
