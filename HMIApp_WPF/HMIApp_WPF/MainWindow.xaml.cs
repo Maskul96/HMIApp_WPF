@@ -48,7 +48,6 @@ namespace HMIApp_WPF
         {
             App.ChangeLanguage("pl");
         }
-
         private void English_Click(object sender, RoutedEventArgs e)
         {
             App.ChangeLanguage("en");

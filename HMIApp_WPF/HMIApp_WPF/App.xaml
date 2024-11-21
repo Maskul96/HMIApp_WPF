@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:HMIApp_WPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Domyślny plik zasobów -->
+                <ResourceDictionary Source="Resources/StringResources.en.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

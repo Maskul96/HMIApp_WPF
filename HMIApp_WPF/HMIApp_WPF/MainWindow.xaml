@@ -113,8 +113,8 @@
             <TextBox x:Name="TextBox_Auto" Text="AUTO" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <TextBox x:Name="TextBox_Man" Grid.Column="1" Text="MANUAL" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <TextBox x:Name="TextBox_Safety" Grid.Column="2" Text="SAFETY" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            <TextBox x:Name="TextBox_Curtain" Grid.Column="3" Text="CURTAIN" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            <TextBox x:Name="TextBox_HomePos" Text="Home Pos" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="TextBox_Curtain" Grid.Column="3" Text="{DynamicResource CURTAIN}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="TextBox_HomePos" Text="{DynamicResource HOMEPOS}" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <TextBox x:Name="TextBox_HMIStatus" Grid.Column="5" Text="HMI STATUS" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         </Grid>
 
