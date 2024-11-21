@@ -7,6 +7,7 @@ using LiveCharts.Wpf.Charts.Base;
 using System.Windows.Threading;
 using System.Globalization;
 using HMIApp_WPF.Resources;
+using System.Windows.Controls;
 
 namespace HMIApp_WPF
 {
@@ -21,6 +22,7 @@ namespace HMIApp_WPF
         public MainWindow()
         {
             InitializeComponent();
+
 
             // Wartości X i Y
             var xValues = new List<double> { 1, 2, 3, 4, 5 };
@@ -60,7 +62,7 @@ namespace HMIApp_WPF
 
         private void OnLanguageChangeButtonClick(object sender, RoutedEventArgs e)
         {
-            var selectedLanguage = "en"; // lub "pl", w zależności od wyboru użytkownika
+            var selectedLanguage = "pl"; // lub "pl", w zależności od wyboru użytkownika
             ChangeLanguage(selectedLanguage);
         }
     }
