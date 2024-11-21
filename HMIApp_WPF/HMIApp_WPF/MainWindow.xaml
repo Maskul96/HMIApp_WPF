@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:Resources="clr-namespace:HMIApp_WPF.Resources"
         xmlns:LiveChart="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="1280">
@@ -115,7 +114,7 @@
             <TextBox x:Name="TextBox_Man" Grid.Column="1" Text="MANUAL" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <TextBox x:Name="TextBox_Safety" Grid.Column="2" Text="SAFETY" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <TextBox x:Name="TextBox_Curtain" Grid.Column="3" Text="CURTAIN" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-            <TextBox x:Name="TextBox_HomePos" Text="" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="TextBox_HomePos" Text="Home Pos" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
             <TextBox x:Name="TextBox_HMIStatus" Grid.Column="5" Text="HMI STATUS" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         </Grid>
 
@@ -143,7 +142,12 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Button x:Name="testButton" Content="{}" HorizontalAlignment="Left" Margin="32,57,0,0" VerticalAlignment="Top" Height="66" Width="93" Click="OnLanguageChangeButtonClick"/>
+            <StackPanel>
+                <Button Content="Polski" Click="Polski_Click" />
+                <Button Content="English" Click="English_Click" />
+                <TextBlock Text="{DynamicResource WelcomeText}" FontSize="20" />
+                <TextBlock Text="{DynamicResource Text}" FontSize="20" />
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>

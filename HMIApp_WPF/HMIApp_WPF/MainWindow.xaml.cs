@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using LiveCharts.Wpf.Charts.Base;
 using System.Windows.Threading;
 using System.Globalization;
-using HMIApp_WPF.Resources;
+using HMIApp_WPF;
 using System.Windows.Controls;
 
 namespace HMIApp_WPF
@@ -16,7 +16,6 @@ namespace HMIApp_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static CultureInfo CurrentCulture { get; set; } = CultureInfo.CurrentCulture;
         public ChartValues<LiveCharts.Defaults.ObservablePoint> MyValues { get; set; }
 
         public MainWindow()
@@ -45,25 +44,14 @@ namespace HMIApp_WPF
             DataContext = this;
 
         }
-
-        public void ChangeLanguage(string languageCode)
+        private void Polski_Click(object sender, RoutedEventArgs e)
         {
-            var culture = new CultureInfo(languageCode);
-            Thread.CurrentThread.CurrentCulture = culture;
-            Thread.CurrentThread.CurrentUICulture = culture;
-
-            CurrentCulture = culture;
-
-            // Zresetuj bindingi, aby odświeżyć widok
-            var oldWindow = Application.Current.MainWindow;
-            Application.Current.MainWindow = null;
-            Application.Current.MainWindow = oldWindow;
+            App.ChangeLanguage("pl");
         }
 
-        private void OnLanguageChangeButtonClick(object sender, RoutedEventArgs e)
+        private void English_Click(object sender, RoutedEventArgs e)
         {
-            var selectedLanguage = "pl"; // lub "pl", w zależności od wyboru użytkownika
-            ChangeLanguage(selectedLanguage);
+            App.ChangeLanguage("en");
         }
     }
     
