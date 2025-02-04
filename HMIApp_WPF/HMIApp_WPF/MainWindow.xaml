@@ -143,6 +143,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <StackPanel>
+                <!---->
                 <Button Content="Polski" Click="Polski_Click" />
                 <Button Content="English" Click="English_Click" />
                 <TextBlock Text="{DynamicResource WelcomeText}" FontSize="20" />
